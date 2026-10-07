@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-[#0D0B1A] text-white font-sans antialiased overflow-x-hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  body.light-theme {
+    background-color: #F5F6FA;
+    color: #1E2022;
+  }
+
+  ::selection {
+    background: rgba(111, 79, 242, 0.35);
+    color: #ffffff;
+  }
+}
+
+/* ── Light Mode Color Overrides ─────────────────────── */
+body.light-theme .theme-bg {
+  background-color: #F5F6FA !important;
+}
+
+body.light-theme .theme-sidebar {
+  background-color: #FFFFFF !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+body.light-theme .theme-header {
+  background-color: #FFFFFF !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+body.light-theme .theme-card {
+  background-color: #FFFFFF !important;
+  border-color: rgba(0, 0, 0, 0.06) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04) !important;
+}
+
+body.light-theme .theme-inner-card {
+  background-color: #F8F9FD !important;
+  border-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+body.light-theme .theme-input {
+  background-color: #F8F9FD !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  color: #1E2022 !important;
+}
+
+body.light-theme .theme-input::placeholder {
+  color: #8B8AA0 !important;
+}
+
+body.light-theme .theme-text {
+  color: #1E2022 !important;
+}
+
+body.light-theme .theme-muted {
+  color: #718096 !important;
+}
+
+body.light-theme .theme-border {
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+/* ── Custom Scrollbars ─────────────────────────────── */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2a2450;
+  border-radius: 99px;
+}
+
+body.light-theme ::-webkit-scrollbar-thumb {
+  background: #CBD5E0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6F4FF2;
+}
+
+/* ── Custom Checkbox ───────────────────────────────── */
+.custom-checkbox input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 17px;
+  height: 17px;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  border-radius: 5px;
+  background-color: transparent;
+  cursor: pointer;
+  display: inline-grid;
+  place-content: center;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+
+body.light-theme .custom-checkbox input[type="checkbox"] {
+  border-color: rgba(0, 0, 0, 0.25);
+}
+
+.custom-checkbox input[type="checkbox"]:hover {
+  border-color: rgba(111, 79, 242, 0.6);
+}
+
+.custom-checkbox input[type="checkbox"]:checked {
+  background-color: #6F4FF2;
+  border-color: #6F4FF2;
+  box-shadow: 0 0 8px rgba(111, 79, 242, 0.4);
+}
+
+.custom-checkbox input[type="checkbox"]:checked::before {
+  content: "";
+  width: 9px;
+  height: 5px;
+  border-left: 2px solid #FFFFFF;
+  border-bottom: 2px solid #FFFFFF;
+  transform: rotate(-45deg) translate(1px, -1px);
+}
+
+/* ── Hide scrollbar utility ────────────────────────── */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
